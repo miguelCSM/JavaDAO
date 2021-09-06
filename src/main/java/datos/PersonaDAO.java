@@ -72,7 +72,7 @@ public class PersonaDAO {
         return personas;
     }
 
-    public int insertar(Persona persona) {
+    public int insertar(Persona persona) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0; // Saber cuantos registros se han actualizado
@@ -87,10 +87,10 @@ public class PersonaDAO {
 
             // Ejecutar sentencia
             registros = stmt.executeUpdate(); // modifica el estado de la base de datos (insert, delete, update)
-
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
+        } //        } catch (SQLException ex) {
+        //            ex.printStackTrace(System.out);
+        //        } 
+        finally {
             try {
                 close(stmt);
                 if (this.conexionTransaccional == null) {
@@ -103,7 +103,7 @@ public class PersonaDAO {
         return registros;
     }
 
-    public int actualizar(Persona persona) {
+    public int actualizar(Persona persona) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0; // Saber cuantos registros se han actualizado
@@ -120,9 +120,10 @@ public class PersonaDAO {
             // Ejecutar sentencia
             registros = stmt.executeUpdate(); // modifica el estado de la base de datos (insert, delete, update)
 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
+        } //        catch (SQLException ex) {
+        //            ex.printStackTrace(System.out);
+        //        } 
+        finally {
             try {
                 close(stmt);
                 if (this.conexionTransaccional == null) {
@@ -135,7 +136,7 @@ public class PersonaDAO {
         return registros;
     }
 
-    public int eliminar(Persona persona) {
+    public int eliminar(Persona persona) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0; // Saber cuantos registros se han actualizado
@@ -147,9 +148,10 @@ public class PersonaDAO {
             // Ejecutar sentencia
             registros = stmt.executeUpdate(); // modifica el estado de la base de datos (insert, delete, update)
 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
+        } //        catch (SQLException ex) {
+        //            ex.printStackTrace(System.out);
+        //        } 
+        finally {
             try {
                 close(stmt);
                 if (this.conexionTransaccional == null) {

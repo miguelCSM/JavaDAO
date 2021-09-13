@@ -1,8 +1,8 @@
 package datos;
 
 import static datos.Conexion.getConnection;
-import domain.Persona;
-import domain.Usuario;
+import domain.PersonaDTO;
+import domain.UsuarioDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO {
+public class UsuarioDaoJDBC {
 
     // SQL Statements
     private static final String SQL_SELECT = "SELECT id_usuario, username, password FROM test.usuario";
@@ -18,14 +18,14 @@ public class UsuarioDAO {
     private static final String SQL_UPDATE = "UPDATE test.usuario SET username = ?, password = ? WHERE id_usuario = ?";
     private static final String SQL_DELETE = "DELETE FROM test.usuario WHERE id_usuario=?";
     
-    public List<Usuario> seleccionar(){
+    public List<UsuarioDTO> seleccionar(){
         //Inicializar parametros de conexión
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Usuario usuario = null;
+        UsuarioDTO usuario = null;
         
-        List<Usuario> usuarios = new ArrayList<>();
+        List<UsuarioDTO> usuarios = new ArrayList<>();
         
         try {
             conn = getConnection();
@@ -38,7 +38,7 @@ public class UsuarioDAO {
                 String userName = rs.getString("username");
                 String password = rs.getString("password");
                 
-                usuario = new Usuario(idUsuario, userName, password);
+                usuario = new UsuarioDTO(idUsuario, userName, password);
                 
                 usuarios.add(usuario);
             }

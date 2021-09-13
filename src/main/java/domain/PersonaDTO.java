@@ -1,6 +1,6 @@
 package domain;
 // Clase de entidad que tiene un representación en la BD
-public class Persona {
+public class PersonaDTO {
     private int idPersona;
     private String nombre;
     private String apellido;
@@ -8,16 +8,16 @@ public class Persona {
     private String telefono;
 
     //EJBean
-    public Persona() {
+    public PersonaDTO() {
     }
     
     //Eliminar un registro
-    public Persona(int idPersona) {
+    public PersonaDTO(int idPersona) {
         this.idPersona = idPersona;
     }
     
     //Nuevo regist4ro
-    public Persona(String nombre, String apellido, String email, String telefono) {
+    public PersonaDTO(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -25,7 +25,7 @@ public class Persona {
     }
     
     // Modificación
-    public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
+    public PersonaDTO(int idPersona, String nombre, String apellido, String email, String telefono) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;

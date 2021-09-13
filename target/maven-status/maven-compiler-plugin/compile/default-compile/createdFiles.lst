@@ -1,1 +1,9 @@
+test\TestManejoDAOPersona.class
+domain\PersonaDTO.class
+test\testPersonaTransaccional.class
+datos\UsuarioDaoJDBC.class
+datos\Conexion.class
+datos\PersonaDAO.class
+datos\PersonaDaoJDBC.class
 test\test.class
+domain\UsuarioDTO.class
